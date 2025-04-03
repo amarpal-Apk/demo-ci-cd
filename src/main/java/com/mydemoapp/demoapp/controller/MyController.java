@@ -12,4 +12,8 @@ public class MyController {
     public  String homePage(){
         return  "welcome to home page";
     }
+    @RequestMapping("/test")
+    public  String testPage(){
+        return  "welcome to Testing  page";
+    }
 }
