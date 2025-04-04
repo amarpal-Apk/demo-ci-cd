@@ -30,11 +30,10 @@ jobs:
       - name: Run Tests
         run: mvn test
 
-
       - name: Set Version Tag
         run: |
-        VERSION="v${{ github.run_number }}"  # Auto-incremented version
-        echo "DOCKER_TAG=$VERSION" >> $GITHUB_ENV  # Version tag
+          VERSION="v${{ github.run_number }}"  # Auto-incremented version
+          echo "DOCKER_TAG=$VERSION" >> $GITHUB_ENV  # Version tag
 
       - name: Build & Push Docker Image
         uses: mr-smithers-excellent/docker-build-push@v5
