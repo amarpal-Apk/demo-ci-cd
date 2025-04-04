@@ -20,4 +20,9 @@ public class MyController {
     public  String devPage(){
         return  "welcome to Dev page";
     }
+
+    @RequestMapping("/v1.0/dev")
+    public  String Page(){
+        return  "welcome to Dev page v1.0";
+    }
 }
