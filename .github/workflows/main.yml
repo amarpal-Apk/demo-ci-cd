@@ -31,17 +31,16 @@ jobs:
         run: mvn test
 
 
-      - name: Set short SHA and safe branch name
+      - name: Set Version Tag
         run: |
-          echo "SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
-          REF_NAME=${GITHUB_REF_NAME:-"default"}
-          echo "SAFE_REF_NAME=$(echo $REF_NAME | tr '/' '-')" >> $GITHUB_ENV
+        VERSION="v${{ github.run_number }}"  # Auto-incremented version
+        echo "DOCKER_TAG=$VERSION" >> $GITHUB_ENV  # Version tag
 
       - name: Build & Push Docker Image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: amarpal/demo-spring
-          tags: latest,${{ env.SHORT_SHA }},${{ env.SAFE_REF_NAME }}-${{ github.run_number }}
+          tags: latest,${{ env.DOCKER_TAG }}
           registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
