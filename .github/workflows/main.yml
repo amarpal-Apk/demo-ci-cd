@@ -31,7 +31,13 @@ jobs:
         run: mvn test
 
 
-      - name: Build & push Docker image
+      - name: Set short SHA and safe branch name
+        run: |
+          echo "SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
+          REF_NAME=${GITHUB_REF_NAME:-"default"}
+          echo "SAFE_REF_NAME=$(echo $REF_NAME | tr '/' '-')" >> $GITHUB_ENV
+
+      - name: Build & Push Docker Image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: amarpal/demo-spring
