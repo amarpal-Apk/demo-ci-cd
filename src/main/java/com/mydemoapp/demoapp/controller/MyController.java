@@ -25,8 +25,8 @@ public class MyController {
     public  String devvPage(){
         return  "welcome to Dev page v1.0";
     }
-    @RequestMapping("/v1.25/dev")
+    @RequestMapping("/v1.27/dev")
     public  String devvvPage(){
-        return  "welcome to Dev page v1.25";
+        return  "welcome to Dev page v1.27";
     }
 }
