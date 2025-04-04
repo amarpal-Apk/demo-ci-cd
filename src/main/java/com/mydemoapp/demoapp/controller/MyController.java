@@ -22,7 +22,7 @@ public class MyController {
     }
 
     @RequestMapping("/v1.0/dev")
-    public  String Page(){
+    public  String devvPage(){
         return  "welcome to Dev page v1.0";
     }
 }
