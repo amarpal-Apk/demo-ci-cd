@@ -11,6 +11,7 @@
 	<groupId>com.mydemoapp</groupId>
 	<artifactId>demoapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	 <packaging>war</packaging>
 	<name>demoapp</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
